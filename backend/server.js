@@ -6,12 +6,13 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigin = process.env.FRONTEND_URL || 'https://starlit-wisp-8a591e.netlify.app';
 app.use(cors({
-    origin: allowedOrigin.trim(),
+    origin: 'https://starlit-wisp-8a591e.netlify.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
+app.options('*', cors());
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
