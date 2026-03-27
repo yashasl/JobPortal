@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:3000/api';
+const API_URL = 'https://jobportal-api-xrb4.onrender.com/api';
 
 const adminToken = localStorage.getItem('adminToken');
 const admin = JSON.parse(localStorage.getItem('admin'));
