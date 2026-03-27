@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Find Your Dream Job</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><i class="fa-solid fa-briefcase"></i> Job<span>Portal</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#" id="nav-jobs-link">Find Jobs</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li class="admin-dropdown">
+                    <a href="#" onclick="toggleAdminDropdown(event)">Admin <i class="fa-solid fa-chevron-down" style="font-size:11px"></i></a>
+                    <div class="admin-drop-menu" id="admin-drop-menu"></div>
+                </li>
+            </ul>
+            <div class="nav-actions" id="nav-actions"></div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Now Hiring — 100+ Jobs Available</div>
+                <h1>Find Your <span class="gradient-text">Dream Job</span> Today</h1>
+                <p>Discover opportunities that match your skills. Apply in seconds and track your applications in real time.</p>
+                <div class="hero-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="hero-search-input" placeholder="Search job title or company..." />
+                    <button onclick="heroSearch()">Search</button>
+                </div>
+                <div class="hero-actions" id="hero-actions"></div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=480&q=80" alt="Professional working" class="hero-img" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f7ff"/></svg>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat"><h3>100+</h3><p>Active Jobs</p></div>
+            <div class="stat-sep"></div>
+            <div class="stat"><h3>Free</h3><p>To Apply</p></div>
+            <div class="stat-sep"></div>
+            <div class="stat"><h3>Fast</h3><p>Easy Process</p></div>
+            <div class="stat-sep"></div>
+            <div class="stat"><h3>Real-time</h3><p>Status Updates</p></div>
+        </div>
+    </section>
+
+    <!-- JOB PREVIEW -->
+    <section class="jobs-preview" id="jobs-preview">
+        <div class="section-wrap">
+            <div class="section-head">
+                <span class="section-tag">Live Listings</span>
+                <h2>Latest <span class="gradient-text">Job Openings</span></h2>
+                <p>Fresh opportunities added regularly — find the one that fits you</p>
+            </div>
+            <div id="preview-jobs-grid" class="jobs-grid"></div>
+            <div class="preview-cta" id="preview-cta"></div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how-it-works">
+        <div class="section-wrap">
+            <div class="section-head">
+                <span class="section-tag">Simple Process</span>
+                <h2>How It <span class="gradient-text">Works</span></h2>
+                <p>Get hired in 3 easy steps</p>
+            </div>
+            <div class="steps-row">
+                <div class="step-box">
+                    <div class="step-num">01</div>
+                    <div class="step-ico"><i class="fa-solid fa-user-plus"></i></div>
+                    <h3>Create Account</h3>
+                    <p>Sign up free and add your skills and experience to your profile.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="step-box">
+                    <div class="step-num">02</div>
+                    <div class="step-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Browse Jobs</h3>
+                    <p>Explore job listings matched to your skills from real companies.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="step-box">
+                    <div class="step-num">03</div>
+                    <div class="step-ico"><i class="fa-solid fa-paper-plane"></i></div>
+                    <h3>Apply & Track</h3>
+                    <p>Apply with one click and track your application status live.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="cta-inner">
+            <div class="cta-text">
+                <h2>Ready to Land Your <span class="gradient-text-light">Dream Job?</span></h2>
+                <p>Join thousands of job seekers who found their perfect role on JobPortal.</p>
+            </div>
+            <div class="cta-btns" id="cta-btns"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo"><i class="fa-solid fa-briefcase"></i> Job<span>Portal</span></a>
+                <p>Connecting talent with opportunity. The modern way to find your dream job.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Job Seekers</h4>
+                <ul id="footer-seekers"></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Employers</h4>
+                <ul>
+                    <li><a href="admin-login.html">Admin Login</a></li>
+                    <li><a href="admin-signup.html">Admin Signup</a></li>
+                    <li><a href="admin-dashboard.html">Post a Job</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JobPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+</html>

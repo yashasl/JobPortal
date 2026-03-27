@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - JobPortal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <h2><i class="fa-solid fa-briefcase" style="color:#6c63ff"></i> JobPortal</h2>
+            <p>Create your free account today</p>
+            <p id="error-msg" class="error-msg"></p>
+            <p id="success-msg" class="success-msg"></p>
+            <form id="signupForm">
+                <input type="text" id="name" placeholder="Full Name" required />
+                <input type="email" id="email" placeholder="Email address" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <input type="text" id="skills" placeholder="Skills (e.g. HTML, CSS, JavaScript)" />
+                <button type="submit">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

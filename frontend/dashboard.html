@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - JobPortal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="js/navbar.js"></script>
+    <div class="page-body">
+        <div class="container">
+            <div class="card profile-card">
+                <h2><i class="fa-solid fa-user"></i> My Profile</h2>
+                <div class="profile-info">
+                    <div class="profile-field">
+                        <label>Full Name</label>
+                        <span id="profile-name"></span>
+                    </div>
+                    <div class="profile-field">
+                        <label>Email</label>
+                        <span id="profile-email"></span>
+                    </div>
+                    <div class="profile-field">
+                        <label>Skills</label>
+                        <span id="profile-skills"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2><i class="fa-solid fa-file-lines"></i> My Applications</h2>
+                <div id="applications-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
