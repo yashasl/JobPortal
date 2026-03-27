@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - JobPortal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <script src="../js/navbar.js"></script>
+
+    <div class="page-body">
+        <div class="container">
+
+            <div class="card">
+                <h2><i class="fa-solid fa-plus-circle"></i> Add New Job</h2>
+                <p id="job-error" class="error-msg"></p>
+                <p id="job-success" class="success-msg"></p>
+                <form id="addJobForm">
+                    <input type="text" id="title" placeholder="Job Title" required />
+                    <input type="text" id="company" placeholder="Company Name" required />
+                    <input type="text" id="skills_required" placeholder="Skills Required (e.g. HTML, CSS)" required />
+                    <textarea id="description" placeholder="Job Description" rows="4" required></textarea>
+                    <button type="submit">Add Job</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2><i class="fa-solid fa-briefcase"></i> Manage Jobs</h2>
+                <div id="jobs-list"></div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fa-solid fa-file-lines"></i> Job Applications</h2>
+                <div id="applications-list"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

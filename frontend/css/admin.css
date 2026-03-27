@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+}
+
+nav {
+    background: #4f46e5;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 20px;
+}
+
+nav span {
+    font-size: 14px;
+}
+
+nav button {
+    background: white;
+    color: #4f46e5;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card input, .card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.card button[type="submit"] {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.card button[type="submit"]:hover {
+    background: #4338ca;
+}
+
+.job-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-info h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.job-info p {
+    color: #666;
+    font-size: 13px;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.error-msg {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.success-msg {
+    color: green;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.no-jobs {
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+.application-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.app-info h3 {
+    color: #333;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.app-info p {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.company-tag {
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: normal;
+}
+
+.app-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status-pending  { background: #fef3c7; color: #92400e; }
+.status-accepted { background: #d1fae5; color: #065f46; }
+.status-rejected { background: #fee2e2; color: #991b1b; }
+
+.accept-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.accept-btn:hover { background: #059669; }
+
+.reject-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.reject-btn:hover { background: #dc2626; }

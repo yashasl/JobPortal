@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - JobPortal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <script src="../js/navbar.js"></script>
+    <div class="page-body">
+        <div class="container">
+            <div class="card">
+                <div class="jobs-header">
+                    <h2><i class="fa-solid fa-briefcase"></i> Available Jobs</h2>
+                    <input type="text" class="search-input" id="search-input" placeholder="Search by title or company..." oninput="filterJobs()" />
+                </div>
+                <div id="jobs-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jobs.js"></script>
+</body>
+</html>
