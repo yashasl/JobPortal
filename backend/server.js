@@ -9,8 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
     origin: 'https://starlit-wisp-8a591e.netlify.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use((req, res, next) => {
