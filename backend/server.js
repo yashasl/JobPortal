@@ -6,11 +6,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-    origin: 'https://starlit-wisp-8a591e.netlify.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
