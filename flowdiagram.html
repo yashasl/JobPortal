@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JobPortal Flow Diagram</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 30px 20px; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #7dd3fc; }
+  .subtitle { text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 0.9rem; }
+
+  .diagram { display: flex; flex-direction: column; gap: 0; align-items: center; }
+
+  /* ── Layers ── */
+  .layer { width: 100%; max-width: 1100px; }
+  .layer-title { text-align: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 10px; }
+
+  /* ── Row of boxes ── */
+  .row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* ── Box styles ── */
+  .box {
+    border-radius: 10px; padding: 12px 18px; min-width: 130px; text-align: center;
+    font-size: 0.82rem; font-weight: 600; position: relative;
+    border: 1.5px solid transparent; transition: transform .2s;
+  }
+  .box:hover { transform: translateY(-3px); }
+  .box .label { font-size: 0.68rem; font-weight: 400; opacity: .75; margin-top: 3px; }
+
+  /* colour themes */
+  .blue   { background: #1e3a5f; border-color: #3b82f6; color: #93c5fd; }
+  .green  { background: #14532d; border-color: #22c55e; color: #86efac; }
+  .purple { background: #3b0764; border-color: #a855f7; color: #d8b4fe; }
+  .orange { background: #431407; border-color: #f97316; color: #fdba74; }
+  .red    { background: #450a0a; border-color: #ef4444; color: #fca5a5; }
+  .teal   { background: #042f2e; border-color: #14b8a6; color: #5eead4; }
+  .gray   { background: #1e293b; border-color: #475569; color: #94a3b8; }
+  .yellow { background: #422006; border-color: #eab308; color: #fde047; }
+
+  /* ── Connector arrows ── */
+  .arrow { display: flex; justify-content: center; align-items: center; height: 36px; }
+  .arrow svg { display: block; }
+
+  /* ── Section divider ── */
+  .divider { width: 100%; max-width: 1100px; border: none; border-top: 1px dashed #334155; margin: 20px 0; }
+
+  /* ── API table ── */
+  .api-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 1100px; }
+  .api-card { background: #1e293b; border-radius: 10px; padding: 14px; border: 1px solid #334155; }
+  .api-card h3 { font-size: 0.78rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #334155; }
+  .api-card .route { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; margin: 4px 0; }
+  .method { border-radius: 4px; padding: 1px 6px; font-weight: 700; font-size: 0.65rem; min-width: 42px; text-align: center; }
+  .GET    { background: #14532d; color: #86efac; }
+  .POST   { background: #1e3a5f; color: #93c5fd; }
+  .PUT    { background: #422006; color: #fde047; }
+  .DELETE { background: #450a0a; color: #fca5a5; }
+  .route-path { color: #cbd5e1; font-family: monospace; }
+  .lock { font-size: 0.65rem; color: #f97316; margin-left: auto; }
+
+  /* ── DB table ── */
+  .db-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 1100px; }
+  .db-card { background: #1e293b; border-radius: 10px; padding: 14px; border: 1px solid #334155; }
+  .db-card h3 { font-size: 0.78rem; margin-bottom: 8px; color: #fde047; }
+  .db-card .field { font-size: 0.7rem; color: #94a3b8; padding: 2px 0; border-bottom: 1px solid #1e293b; }
+  .db-card .field span { color: #64748b; float: right; font-size: 0.65rem; }
+
+  /* ── Legend ── */
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #94a3b8; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<h1>🏢 JobPortal — System Flow Diagram</h1>
+<p class="subtitle">Full-stack Express.js + PostgreSQL · Hosted on Render (API) &amp; Netlify (Frontend)</p>
+
+<div class="diagram">
+
+  <!-- ══ LAYER 1: CLIENT ══ -->
+  <div class="layer">
+    <div class="layer-title">Frontend — Netlify (Static HTML/CSS/JS)</div>
+    <div class="row">
+      <div class="box blue">index.html<div class="label">Home / Job Listings</div></div>
+      <div class="box blue">login.html<div class="label">User Login</div></div>
+      <div class="box blue">signup.html<div class="label">User Register</div></div>
+      <div class="box blue">jobs.html<div class="label">Browse Jobs</div></div>
+      <div class="box blue">job-apply.html<div class="label">Apply for Job</div></div>
+      <div class="box blue">dashboard.html<div class="label">User Dashboard</div></div>
+      <div class="box purple">admin-login.html<div class="label">Admin Login</div></div>
+      <div class="box purple">admin-signup.html<div class="label">Admin Register</div></div>
+      <div class="box purple">admin-dashboard.html<div class="label">Admin Dashboard</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="36"><line x1="1" y1="0" x2="1" y2="28" stroke="#475569" stroke-width="2"/><polygon points="1,36 -4,24 6,24" fill="#475569"/></svg>
+  </div>
+
+  <!-- ══ LAYER 2: JS MODULES ══ -->
+  <div class="layer">
+    <div class="layer-title">Frontend JS Modules</div>
+    <div class="row">
+      <div class="box teal">auth.js<div class="label">Login / Register calls</div></div>
+      <div class="box teal">jobs.js<div class="label">Fetch &amp; display jobs</div></div>
+      <div class="box teal">job-apply.js<div class="label">Submit application</div></div>
+      <div class="box teal">dashboard.js<div class="label">My applications</div></div>
+      <div class="box teal">home.js<div class="label">Landing page logic</div></div>
+      <div class="box purple">admin-auth.js<div class="label">Admin login calls</div></div>
+      <div class="box purple">admin-dashboard.js<div class="label">Manage apps &amp; jobs</div></div>
+      <div class="box gray">navbar.js<div class="label">Shared nav logic</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="36"><line x1="1" y1="0" x2="1" y2="28" stroke="#475569" stroke-width="2"/><polygon points="1,36 -4,24 6,24" fill="#475569"/></svg>
+  </div>
+
+  <!-- ══ LAYER 3: HTTP / JWT ══ -->
+  <div class="layer">
+    <div class="layer-title">HTTP Requests + JWT Bearer Token</div>
+    <div class="row">
+      <div class="box yellow">fetch() / Axios<div class="label">REST API calls with Authorization header</div></div>
+      <div class="box orange">JWT Token<div class="label">Stored in localStorage · expires 1d</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="36"><line x1="1" y1="0" x2="1" y2="28" stroke="#475569" stroke-width="2"/><polygon points="1,36 -4,24 6,24" fill="#475569"/></svg>
+  </div>
+
+  <!-- ══ LAYER 4: SERVER ══ -->
+  <div class="layer">
+    <div class="layer-title">Backend — Express.js Server (Render · Port 3000)</div>
+    <div class="row">
+      <div class="box green">server.js<div class="label">Entry point · CORS · Routes mount</div></div>
+      <div class="box orange">verifyToken middleware<div class="label">JWT validation on protected routes</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="36"><line x1="1" y1="0" x2="1" y2="28" stroke="#475569" stroke-width="2"/><polygon points="1,36 -4,24 6,24" fill="#475569"/></svg>
+  </div>
+
+  <!-- ══ LAYER 5: API ROUTES ══ -->
+  <div class="layer">
+    <div class="layer-title">API Routes &amp; Controllers</div>
+  </div>
+  <div class="api-grid">
+
+    <div class="api-card">
+      <h3 style="color:#93c5fd">🔐 Auth Routes &nbsp;<code style="font-size:.65rem;color:#64748b">/api</code></h3>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/register</span></div>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/login</span></div>
+      <div style="margin-top:8px;font-size:.68rem;color:#64748b">authController.js<br>bcrypt hash · JWT sign</div>
+    </div>
+
+    <div class="api-card">
+      <h3 style="color:#86efac">💼 Job Routes &nbsp;<code style="font-size:.65rem;color:#64748b">/api</code></h3>
+      <div class="route"><span class="method GET">GET</span><span class="route-path">/jobs</span></div>
+      <div class="route"><span class="method GET">GET</span><span class="route-path">/jobs/:id</span></div>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/add-job</span><span class="lock">🔒</span></div>
+      <div class="route"><span class="method DELETE">DELETE</span><span class="route-path">/delete-job/:id</span><span class="lock">🔒</span></div>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/apply</span><span class="lock">🔒</span></div>
+      <div class="route"><span class="method GET">GET</span><span class="route-path">/my-applications</span><span class="lock">🔒</span></div>
+      <div style="margin-top:8px;font-size:.68rem;color:#64748b">jobController.js</div>
+    </div>
+
+    <div class="api-card">
+      <h3 style="color:#d8b4fe">🛡️ Admin Routes &nbsp;<code style="font-size:.65rem;color:#64748b">/api/admin</code></h3>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/register</span></div>
+      <div class="route"><span class="method POST">POST</span><span class="route-path">/login</span></div>
+      <div class="route"><span class="method GET">GET</span><span class="route-path">/applications</span><span class="lock">🔒</span></div>
+      <div class="route"><span class="method PUT">PUT</span><span class="route-path">/applications/:id/status</span><span class="lock">🔒</span></div>
+      <div style="margin-top:8px;font-size:.68rem;color:#64748b">adminController.js<br>accept / reject status</div>
+    </div>
+
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="36"><line x1="1" y1="0" x2="1" y2="28" stroke="#475569" stroke-width="2"/><polygon points="1,36 -4,24 6,24" fill="#475569"/></svg>
+  </div>
+
+  <!-- ══ LAYER 6: DB ══ -->
+  <div class="layer">
+    <div class="layer-title">Database — PostgreSQL (Render · SSL)</div>
+  </div>
+  <div class="db-grid">
+
+    <div class="db-card">
+      <h3>📋 users</h3>
+      <div class="field">id <span>SERIAL PK</span></div>
+      <div class="field">name <span>VARCHAR</span></div>
+      <div class="field">email <span>VARCHAR UNIQUE</span></div>
+      <div class="field">password <span>VARCHAR (hashed)</span></div>
+      <div class="field">skills <span>TEXT</span></div>
+    </div>
+
+    <div class="db-card">
+      <h3>💼 jobs</h3>
+      <div class="field">id <span>SERIAL PK</span></div>
+      <div class="field">title <span>VARCHAR</span></div>
+      <div class="field">company <span>VARCHAR</span></div>
+      <div class="field">skills_required <span>TEXT</span></div>
+      <div class="field">description <span>TEXT</span></div>
+    </div>
+
+    <div class="db-card">
+      <h3>📨 applications</h3>
+      <div class="field">id <span>SERIAL PK</span></div>
+      <div class="field">user_id <span>FK → users</span></div>
+      <div class="field">job_id <span>FK → jobs</span></div>
+      <div class="field">status <span>pending/accepted/rejected</span></div>
+      <div class="field">applied_at <span>TIMESTAMP</span></div>
+    </div>
+
+    <div class="db-card" style="grid-column:1/2">
+      <h3>🛡️ admin</h3>
+      <div class="field">id <span>SERIAL PK</span></div>
+      <div class="field">username <span>VARCHAR</span></div>
+      <div class="field">email <span>VARCHAR UNIQUE</span></div>
+      <div class="field">password <span>VARCHAR (hashed)</span></div>
+    </div>
+
+    <div class="db-card" style="grid-column:2/4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+      <div style="font-size:.75rem;color:#64748b;text-align:center">
+        <strong style="color:#5eead4">config/db.js</strong><br>
+        pg.Pool · SSL enabled<br>
+        connectionString from <code>.env</code>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ LEGEND ══ -->
+  <hr class="divider">
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Frontend Pages</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#14b8a6"></div>JS Modules</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Express Server</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Admin</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Auth / JWT Middleware</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#eab308"></div>HTTP Layer</div>
+    <div class="legend-item"><span style="color:#f97316">🔒</span>&nbsp;JWT Protected Route</div>
+  </div>
+
+</div>
+
+</body>
+</html>
